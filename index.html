@@ -212,6 +212,30 @@
     src="https://www.facebook.com/tr?id=1267222893915931&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+
+    <script>
+        // Get the UTM parameters from the URL
+        var source = getParameterByName('utm_source');
+        var medium = getParameterByName('utm_medium');
+        var campaign = getParameterByName('utm_campaign');
+      
+        // Append the UTM parameters to links on the page
+        var links = document.getElementsByTagName('a');
+        for (var i = 0; i < links.length; i++) {
+          var href = links[i].getAttribute('href');
+          if (href.indexOf('?') === -1) {
+            links[i].setAttribute('href', href + '?utm_source=' + source + '&utm_medium=' + medium + '&utm_campaign=' + campaign);
+          } else {
+            links[i].setAttribute('href', href + '&utm_source=' + source + '&utm_medium=' + medium + '&utm_campaign=' + campaign);
+          }
+        }
+      
+        // Helper function to get URL parameter values
+        function getParameterByName(name) {
+          var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+          return match ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : '';
+        }
+      </script>
 </head>
 
 <body data-gr-c-s-loaded="true" cz-shortcut-listen="true">
