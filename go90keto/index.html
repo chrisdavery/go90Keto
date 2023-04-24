@@ -2347,7 +2347,7 @@
     for (var i = 0; i < aElements.length; i++) {
         var href = aElements[i].getAttribute('href');
 
-        if (href.indexOf('?') === -1) {
+        if (href != null && href.indexOf('?') === -1) {
         // If the href attribute doesn't already have parameters, add them
         href += '?' + params;
         } else {

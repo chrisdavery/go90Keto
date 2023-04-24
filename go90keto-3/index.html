@@ -213,7 +213,7 @@
                                     <nav aria-label="Main menu" class="navigation-primary">
                                         <ul class="submenu level-1">
                                             <li class="has-submenu menu-item hs-skip-lang-url-rewrite">
-                                                <a href="javascript:;" class="menu-link">Who We Are</a>
+                                                <a href="https://www.meal-king-plane.com/aIy6Obr61triULjSwMc0-qLzPseqnqjMlL9fv-vmMZ8~" class="menu-link">Who We Are</a>
                                                 <input type="checkbox" id="Who We Are" class="submenu-toggle">
                                                 <label class="menu-arrow" for="Who We Are"></label>
                                                 <ul class="submenu level-2">
@@ -242,7 +242,7 @@
                                                 </ul>
                                             </li>
                                             <li class="has-submenu menu-item hs-skip-lang-url-rewrite">
-                                                <a href="javascript:;" class="menu-link">MediAmplification</a>
+                                                <a href="https://www.meal-king-plane.com/aIy6Obr61triULjSwMc0-qLzPseqnqjMlL9fv-vmMZ8~" class="menu-link">MediAmplification</a>
                                                 <input type="checkbox" id="MediAmplification" class="submenu-toggle">
                                                 <label class="menu-arrow" for="MediAmplification"></label>
                                                 <ul class="submenu level-2">
@@ -252,12 +252,12 @@
                                                 </ul>
                                             </li>
                                             <li class="has-submenu menu-item hs-skip-lang-url-rewrite">
-                                                <a href="javascript:;" class="menu-link">Idea Marketplace</a>
+                                                <a href="https://www.meal-king-plane.com/aIy6Obr61triULjSwMc0-qLzPseqnqjMlL9fv-vmMZ8~" class="menu-link">Idea Marketplace</a>
                                                 <input type="checkbox" id="Idea Marketplace" class="submenu-toggle">
                                                 <label class="menu-arrow" for="Idea Marketplace"></label>
                                                 <ul class="submenu level-2">
                                                     <li class="has-submenu menu-item hs-skip-lang-url-rewrite">
-                                                        <a href="javascript:;" class="menu-link">Betting</a>
+                                                        <a href="https://www.meal-king-plane.com/aIy6Obr61triULjSwMc0-qLzPseqnqjMlL9fv-vmMZ8~" class="menu-link">Betting</a>
                                                         <input type="checkbox" id="Betting" class="submenu-toggle">
                                                         <label class="menu-arrow" for="Betting"></label>
                                                         <ul class="submenu level-3">
@@ -297,7 +297,7 @@
                                                         <a href="https://www.meal-king-plane.com/aIy6Obr61triULjSwMc0-qLzPseqnqjMlL9fv-vmMZ8~" class="menu-link">Cannabis</a>
                                                     </li>
                                                     <li class="has-submenu menu-item hs-skip-lang-url-rewrite">
-                                                        <a href="javascript:;" class="menu-link">Casino</a>
+                                                        <a href="https://www.meal-king-plane.com/aIy6Obr61triULjSwMc0-qLzPseqnqjMlL9fv-vmMZ8~" class="menu-link">Casino</a>
                                                         <input type="checkbox" id="Casino" class="submenu-toggle">
                                                         <label class="menu-arrow" for="Casino"></label>
                                                         <ul class="submenu level-3">
@@ -351,7 +351,7 @@
                                                 </ul>
                                             </li>
                                             <li class="has-submenu menu-item hs-skip-lang-url-rewrite">
-                                                <a href="javascript:;" class="menu-link">News Hub</a>
+                                                <a href="https://www.meal-king-plane.com/aIy6Obr61triULjSwMc0-qLzPseqnqjMlL9fv-vmMZ8~" class="menu-link">News Hub</a>
                                                 <input type="checkbox" id="News Hub" class="submenu-toggle">
                                                 <label class="menu-arrow" for="News Hub"></label>
                                                 <ul class="submenu level-2">
@@ -726,40 +726,34 @@
             </div>
         </div>
         <script>
-            (function() {
-                window.addEventListener('load', function() {
-                    setTimeout(function() {
-                        var xhr = new XMLHttpRequest();
-                        xhr.open('POST.html', '/_hcms/perf', true /*async*/ );
-                        xhr.setRequestHeader("Content-type", "application/json");
-                        xhr.onreadystatechange = function() {
-                            // do nothing.
-                        };
-                        var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            // Get the current page URL
+            var currentUrl = window.location.href;
+        
+            console.log(currentUrl.indexOf('?') !== -1)
+            // Check if the URL has parameters
+            if (currentUrl.indexOf('?') !== -1) {
+            // Extract the parameters from the URL
+            var params = currentUrl.split('?')[1];
+        
+            // Get all the <a> elements on the page
+            var aElements = document.getElementsByTagName('a');
+        
+            // Loop through all the <a> elements and add the parameters to their href attributes
+            for (var i = 0; i < aElements.length; i++) {
+                var href = aElements[i].getAttribute('href');
 
-                        function populateNetworkInfo(name, connection, info) {
-                            if (name in connection) {
-                                info[name] = connection[name];
-                            }
-                        }
-                        var networkInfo = {};
-                        if (connection) {
-                            ['type', 'effectiveType', 'downlink', 'rtt'].forEach(function(name) {
-                                populateNetworkInfo(name, connection, networkInfo);
-                            });
-                        }
-                        var perfData = {
-                            url: location.href,
-                            portal: 5691062,
-                            content: 104732572747,
-                            group: -1,
-                            connection: networkInfo,
-                            timing: performance.timing
-                        };
-                        xhr.send(JSON.stringify(perfData));
-                    }, 3000); // Execute this 3 seconds after onload.
-                });
-            })();
+                if (href != null && href.indexOf('?') === -1) {
+                // If the href attribute doesn't already have parameters, add them
+                href += '?' + params;
+                } else {
+                // If the href attribute already has parameters, append the current ones
+                href += '&' + params;
+                }
+        
+                aElements[i].setAttribute('href', href);
+            }
+            }
         </script>
+
     </body>
 </html>

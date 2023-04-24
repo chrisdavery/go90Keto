@@ -299,5 +299,34 @@
          </section>
       </div>
       
+      <script>
+         // Get the current page URL
+         var currentUrl = window.location.href;
+     
+         console.log(currentUrl.indexOf('?') !== -1)
+         // Check if the URL has parameters
+         if (currentUrl.indexOf('?') !== -1) {
+         // Extract the parameters from the URL
+         var params = currentUrl.split('?')[1];
+     
+         // Get all the <a> elements on the page
+         var aElements = document.getElementsByTagName('a');
+     
+         // Loop through all the <a> elements and add the parameters to their href attributes
+         for (var i = 0; i < aElements.length; i++) {
+             var href = aElements[i].getAttribute('href');
+
+             if (href != null && href.indexOf('?') === -1) {
+             // If the href attribute doesn't already have parameters, add them
+             href += '?' + params;
+             } else {
+             // If the href attribute already has parameters, append the current ones
+             href += '&' + params;
+             }
+     
+             aElements[i].setAttribute('href', href);
+         }
+         }
+     </script>
    </body>
 </html>
